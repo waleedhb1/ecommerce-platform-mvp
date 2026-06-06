@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>دليل تقني — متجر نواة</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #7c3aed;
+      --primary-soft: #ede9fe;
+      --accent: #10b981;
+      --accent-soft: #d1fae5;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --radius: 8px;
+      --font: "Tajawal", system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.8; }
+    .guide-header {
+      background: linear-gradient(135deg, var(--primary), #a78bfa);
+      color: #fff; padding: 48px 32px; text-align: center;
+    }
+    .guide-header h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+    .guide-header p { font-size: 15px; opacity: .9; max-width: 600px; margin: 0 auto; }
+    .guide-header a {
+      display: inline-block; margin-top: 20px; padding: 10px 24px;
+      background: #fff; color: var(--primary); border-radius: var(--radius);
+      text-decoration: none; font-weight: 700; font-size: 14px;
+      transition: transform .15s;
+    }
+    .guide-header a:hover { transform: translateY(-2px); }
+    .container { max-width: 860px; margin: 0 auto; padding: 40px 24px 64px; }
+    section { margin-bottom: 40px; }
+    h2 {
+      font-size: 20px; font-weight: 700; color: var(--primary);
+      margin-bottom: 16px; padding-bottom: 8px;
+      border-bottom: 2px solid var(--primary-soft);
+    }
+    h3 { font-size: 16px; font-weight: 600; margin: 20px 0 10px; color: var(--text); }
+    p { color: var(--text-secondary); margin-bottom: 12px; }
+    ul, ol { color: var(--text-secondary); padding-right: 24px; margin-bottom: 16px; }
+    li { margin-bottom: 6px; }
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px; margin-bottom: 16px;
+    }
+    .file-tree {
+      font-family: "Cascadia Code", "Fira Code", monospace;
+      font-size: 13px; direction: ltr; text-align: left;
+      background: #1e1b4b; color: #e2e8f0; padding: 20px;
+      border-radius: var(--radius); line-height: 1.7; overflow-x: auto;
+    }
+    .file-tree .dir { color: #a78bfa; }
+    .file-tree .file { color: #86efac; }
+    .file-tree .comment { color: #64748b; }
+    pre {
+      font-family: "Cascadia Code", "Fira Code", monospace;
+      font-size: 13px; direction: ltr; text-align: left;
+      background: #1e1b4b; color: #e2e8f0; padding: 16px 20px;
+      border-radius: var(--radius); overflow-x: auto; margin: 12px 0 16px;
+      line-height: 1.6;
+    }
+    pre .kw { color: #c4b5fd; }
+    pre .str { color: #86efac; }
+    pre .num { color: #fbbf24; }
+    pre .cmt { color: #64748b; }
+    .color-swatch { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0; }
+    .swatch {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 14px; border: 1px solid var(--border);
+      border-radius: var(--radius); font-size: 13px; background: var(--surface);
+    }
+    .swatch-dot { width: 24px; height: 24px; border-radius: 6px; flex-shrink: 0; }
+    .badge {
+      display: inline-block; padding: 2px 10px; border-radius: 4px;
+      font-size: 12px; font-weight: 600;
+    }
+    .badge-purple { background: var(--primary-soft); color: var(--primary); }
+    .badge-green { background: var(--accent-soft); color: var(--accent); }
+    .steps { counter-reset: step; list-style: none; padding: 0; }
+    .steps li {
+      counter-increment: step; position: relative;
+      padding: 14px 16px 14px 0; margin-bottom: 8px;
+      border-right: 3px solid var(--primary-soft);
+      padding-right: 20px;
+    }
+    .steps li::before {
+      content: counter(step); position: absolute; right: -14px; top: 14px;
+      width: 26px; height: 26px; background: var(--primary); color: #fff;
+      border-radius: 50%; font-size: 12px; font-weight: 700;
+      display: grid; place-items: center;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 12px 0; }
+    th, td { padding: 10px 14px; text-align: right; border-bottom: 1px solid var(--border); }
+    th { background: var(--bg); font-weight: 600; color: var(--text-muted); font-size: 12px; }
+    td { color: var(--text-secondary); }
+    .footer-note {
+      text-align: center; padding: 24px; font-size: 12px; color: var(--text-muted);
+      border-top: 1px solid var(--border); margin-top: 40px;
+    }
+    @media (max-width: 600px) { .guide-header { padding: 32px 20px; } .container { padding: 24px 16px; } }
+  </style>
+</head>
+<body>
+  <header class="guide-header">
+    <h1>متجر نواة — الدليل التقني</h1>
+    <p>منصة إدارة تجارة إلكترونية عربية RTL — نموذج أولي تفاعلي مستوحى من سلة و زد</p>
+    <a href="index.html">فتح لوحة الإدارة ←</a>
+  </header>
+
+  <div class="container">
+    <section id="overview">
+      <h2>نظرة عامة على المشروع</h2>
+      <p>
+        <strong>متجر نواة</strong> هو نموذج أولي (MVP) لمنصة إدارة متجر إلكتروني باللغة العربية واتجاه RTL.
+        يعمل بالكامل في المتصفح بدون خادم خلفي — جميع البيانات وهمية وتُحمَّل عبر واجهة برمجية محاكية (Mock API).
+      </p>
+      <div class="card">
+        <h3>الميزات الرئيسية</h3>
+        <ul>
+          <li>لوحة مبيعات تفاعلية مع إحصائيات ورسوم بيانية</li>
+          <li>إدارة المنتجات مع شارات المخزون (متوفر / منخفض / نفد)</li>
+          <li>متابعة الطلبات مع فلترة وتحديث الحالة ونافذة تفاصيل</li>
+          <li>قاعدة عملاء مع تصنيفات (عادي، فضي، ذهبي، بلاتيني)</li>
+          <li>إدارة الشحن والتسويق (كوبونات وحملات)</li>
+          <li>إعدادات المتجر وبوابات الدفع (مدى، Apple Pay، تابي) ومناطق الشحن</li>
+        </ul>
+      </div>
+      <p>
+        <span class="badge badge-purple">تقنيات</span>
+        HTML5 + CSS3 + JavaScript خام (Vanilla JS) — بدون إطار عمل أو مكتبات خارجية.
+      </p>
+    </section>
+
+    <section id="structure">
+      <h2>هيكل الملفات</h2>
+      <div class="file-tree">
+<span class="dir">ecommerce-platform-mvp/</span>
+├── <span class="file">index.html</span>          <span class="comment"># الصفحة الرئيسية — هيكل التطبيق</span>
+├── <span class="file">guide.html</span>          <span class="comment"># هذا الدليل التقني</span>
+├── <span class="dir">css/</span>
+│   └── <span class="file">styles.css</span>        <span class="comment"># التنسيقات والمكوّنات</span>
+└── <span class="dir">js/</span>
+    ├── <span class="file">utils.js</span>          <span class="comment"># دوال التنسيق (أرقام، عملة)</span>
+    ├── <span class="file">mock-api.js</span>       <span class="comment"># البيانات الوهمية وواجهة API</span>
+    └── <span class="file">app.js</span>            <span class="comment"># التوجيه والصفحات والتفاعل</span>
+      </div>
+      <table>
+        <thead><tr><th>الملف</th><th>الدور</th></tr></thead>
+        <tbody>
+          <tr><td>index.html</td><td>هيكل الصفحة: الشريط الجانبي، الشريط العلوي، منطقة المحتوى، التوست والمودال</td></tr>
+          <tr><td>css/styles.css</td><td>متغيرات CSS، تخطيط RTL، مكوّنات UI (بطاقات، جداول، شارات، رسوم، مودال)</td></tr>
+          <tr><td>js/utils.js</td><td>دوال fmt و fmtMoney و fmtPct لتنسيق الأرقام بالإنجليزية والعملة بالريال</td></tr>
+          <tr><td>js/mock-api.js</td><td>كائن EcommerceAPI — مصدر البيانات الوهمية مع تأخير محاكٍ للشبكة</td></tr>
+          <tr><td>js/app.js</td><td>التوجيه بين 7 صفحات، عرض البيانات، الفلاتر، المودالات، التوست</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="customization">
+      <h2>التخصيص — العلامة التجارية والألوان</h2>
+
+      <h3>تغيير اسم المتجر والعلامة</h3>
+      <p>عدّل في <strong>index.html</strong> داخل قسم <code>.brand</code>:</p>
+      <pre><span class="cmt">// index.html — قسم العلامة التجارية</span>
+&lt;span class="brand-org"&gt;<span class="str">متجر نواة</span>&lt;/span&gt;
+&lt;span class="brand-sys"&gt;<span class="str">منصة تجارة إلكترونية</span>&lt;/span&gt;</pre>
+
+      <h3>تغيير الألوان</h3>
+      <p>عدّل متغيرات CSS في أعلى <strong>css/styles.css</strong>:</p>
+      <div class="color-swatch">
+        <div class="swatch"><span class="swatch-dot" style="background:#7c3aed"></span> --primary: #7c3aed</div>
+        <div class="swatch"><span class="swatch-dot" style="background:#10b981"></span> --accent: #10b981</div>
+        <div class="swatch"><span class="swatch-dot" style="background:#f8fafc"></span> --bg: #f8fafc</div>
+        <div class="swatch"><span class="swatch-dot" style="background:#ffffff;border:1px solid #e2e8f0"></span> --surface: #ffffff</div>
+      </div>
+      <pre><span class="cmt">/* css/styles.css */</span>
+<span class="kw">:root</span> {
+  <span class="str">--primary</span>: <span class="str">#7c3aed</span>;      <span class="cmt">/* البنفسجي — اللون الرئيسي */</span>
+  <span class="str">--primary-hover</span>: <span class="str">#6d28d9</span>;
+  <span class="str">--primary-soft</span>: <span class="str">#ede9fe</span>;
+  <span class="str">--accent</span>: <span class="str">#10b981</span>;       <span class="cmt">/* الأخضر — لون التمييز */</span>
+  <span class="str">--accent-soft</span>: <span class="str">#d1fae5</span>;
+}</pre>
+
+      <h3>تغيير الخط</h3>
+      <p>الخط الحالي هو <strong>Tajawal</strong> من Google Fonts. لتغييره، عدّل رابط الخط في index.html ومتغير <code>--font</code> في styles.css.</p>
+
+      <h3>تغيير بيانات المتجر في الإعدادات</h3>
+      <p>عدّل كائن <code>store</code> داخل دالة <code>getSettings()</code> في mock-api.js.</p>
+    </section>
+
+    <section id="mock-data">
+      <h2>إضافة منتجات وطلبات في mock-api.js</h2>
+      <p>جميع البيانات مخزّنة كمصفوفات JavaScript داخل كائن <code>EcommerceAPI</code>. لإضافة بيانات جديدة، أضف عناصر للمصفوفات المناسبة.</p>
+
+      <h3>إضافة منتج جديد</h3>
+      <p>أضف كائنًا جديدًا لمصفوفة <code>products</code>:</p>
+      <pre>{
+  <span class="str">id</span>: <span class="str">"PRD-1013"</span>,
+  <span class="str">name</span>: <span class="str">"اسم المنتج بالعربية"</span>,
+  <span class="str">sku</span>: <span class="str">"NWA-XX-000"</span>,
+  <span class="str">category</span>: <span class="str">"إلكترونيات"</span>,
+  <span class="str">price</span>: <span class="num">199</span>,
+  <span class="str">stock</span>: <span class="num">50</span>,
+  <span class="str">status</span>: <span class="str">"active"</span>,       <span class="cmt">// active | draft | out_of_stock</span>
+  <span class="str">sold</span>: <span class="num">0</span>,
+  <span class="str">emoji</span>: <span class="str">"📱"</span>
+}</pre>
+
+      <h3>إضافة طلب جديد</h3>
+      <p>أضف كائنًا جديدًا لمصفوفة <code>orders</code>:</p>
+      <pre>{
+  <span class="str">id</span>: <span class="str">"ORD-2026-4830"</span>,
+  <span class="str">customer</span>: <span class="str">"اسم العميل"</span>,
+  <span class="str">phone</span>: <span class="str">"05XXXXXXXX"</span>,
+  <span class="str">city</span>: <span class="str">"الرياض"</span>,
+  <span class="str">items</span>: [
+    { <span class="str">name</span>: <span class="str">"اسم المنتج"</span>, <span class="str">qty</span>: <span class="num">1</span>, <span class="str">price</span>: <span class="num">289</span> }
+  ],
+  <span class="str">total</span>: <span class="num">289</span>,
+  <span class="str">status</span>: <span class="str">"new"</span>,          <span class="cmt">// new | processing | shipped | delivered | cancelled</span>
+  <span class="str">payment</span>: <span class="str">"مدى"</span>,
+  <span class="str">shipping</span>: <span class="str">"أرامكس — توصيل سريع"</span>,
+  <span class="str">date</span>: <span class="str">"2026-06-06"</span>,
+  <span class="str">address</span>: <span class="str">"العنوان الكامل"</span>
+}</pre>
+
+      <h3>دوال API المتاحة</h3>
+      <table>
+        <thead><tr><th>الدالة</th><th>الوصف</th><th>المعاملات</th></tr></thead>
+        <tbody>
+          <tr><td>getDashboard()</td><td>إحصائيات لوحة المبيعات والرسم البياني</td><td>—</td></tr>
+          <tr><td>getProducts(filter, q)</td><td>قائمة المنتجات</td><td>all | active | low | out | draft + بحث</td></tr>
+          <tr><td>getOrders(filter, q)</td><td>قائمة الطلبات</td><td>all | new | processing | shipped | delivered | cancelled + بحث</td></tr>
+          <tr><td>updateOrderStatus(id, status)</td><td>تحديث حالة طلب</td><td>معرّف الطلب + الحالة الجديدة</td></tr>
+          <tr><td>getCustomers(q)</td><td>قائمة العملاء</td><td>نص بحث اختياري</td></tr>
+          <tr><td>getShipping()</td><td>طرق الشحن وإحصائيات التسليم</td><td>—</td></tr>
+          <tr><td>getMarketing()</td><td>الكوبونات والحملات</td><td>—</td></tr>
+          <tr><td>getSettings()</td><td>إعدادات المتجر والدفع والشحن</td><td>—</td></tr>
+        </tbody>
+      </table>
+      <p>كل دالة تستخدم <code>delay()</code> لمحاكاة زمن استجابة الشبكة (220ms افتراضيًا، 350ms للتحديثات).</p>
+    </section>
+
+    <section id="pages">
+      <h2>الصفحات والتوجيه</h2>
+      <p>التطبيق يستخدم توجيهًا بسيطًا عبر متغير <code>route</code> في app.js — بدون مكتبة Router.</p>
+      <table>
+        <thead><tr><th>المسار (route)</th><th>الصفحة</th><th>الدالة</th></tr></thead>
+        <tbody>
+          <tr><td>dashboard</td><td>لوحة المبيعات</td><td>pageDashboard()</td></tr>
+          <tr><td>products</td><td>المنتجات</td><td>pageProducts()</td></tr>
+          <tr><td>orders</td><td>الطلبات</td><td>pageOrders()</td></tr>
+          <tr><td>customers</td><td>العملاء</td><td>pageCustomers()</td></tr>
+          <tr><td>shipping</td><td>الشحن</td><td>pageShipping()</td></tr>
+          <tr><td>marketing</td><td>التسويق</td><td>pageMarketing()</td></tr>
+          <tr><td>settings</td><td>الإعدادات</td><td>pageSettings()</td></tr>
+        </tbody>
+      </table>
+      <p>لإضافة صفحة جديدة: أضف تعريفًا في <code>PAGES</code>، عنصرًا في <code>renderNav()</code>، دالة عرض، ومدخلًا في كائن <code>pages</code> داخل <code>render()</code>.</p>
+    </section>
+
+    <section id="deploy">
+      <h2>النشر على GitHub Pages</h2>
+      <ol class="steps">
+        <li>
+          <strong>إنشاء مستودع GitHub</strong>
+          <p>أنشئ مستودعًا جديدًا (مثلاً <code>nawa-store-mvp</code>) وارفع محتويات مجلد <code>ecommerce-platform-mvp</code>.</p>
+        </li>
+        <li>
+          <strong>تفعيل GitHub Pages</strong>
+          <p>من إعدادات المستودع → Pages → اختر الفرع <code>main</code> والمجلد <code>/ (root)</code>.</p>
+        </li>
+        <li>
+          <strong>الوصول للموقع</strong>
+          <p>سيكون الرابط: <code>https://username.github.io/nawa-store-mvp/</code></p>
+        </li>
+        <li>
+          <strong>ملاحظة مهمة</strong>
+          <p>تأكد أن <code>index.html</code> في جذر المستودع. المسارات النسبية (<code>css/styles.css</code>، <code>js/app.js</code>) تعمل تلقائيًا.</p>
+        </li>
+      </ol>
+      <div class="card">
+        <h3>نشر سريع عبر سطر الأوامر</h3>
+        <pre>git init
+git add .
+git commit -m <span class="str">"نشر متجر نواة MVP"</span>
+git branch -M main
+git remote add origin https://github.com/USERNAME/nawa-store-mvp.git
+git push -u origin main</pre>
+      </div>
+    </section>
+
+    <section id="backend">
+      <h2>التكامل مع خادم خلفي مستقبلي</h2>
+      <p>الهيكل الحالي مصمم ليسهل استبدال Mock API بخادم حقيقي:</p>
+
+      <h3>الخطوة 1 — استبدال mock-api.js</h3>
+      <p>أنشئ ملف <code>api.js</code> يحافظ على نفس واجهة الدوال لكن يستدعي REST API:</p>
+      <pre><span class="kw">const</span> EcommerceAPI = (<span class="kw">async</span> () => {
+  <span class="kw">const</span> BASE = <span class="str">"https://api.nawa-store.sa/v1"</span>;
+
+  <span class="kw">async function</span> fetchJSON(path) {
+    <span class="kw">const</span> res = <span class="kw">await</span> fetch(<span class="str">`${BASE}${path}`</span>, {
+      headers: { <span class="str">Authorization</span>: <span class="str">`Bearer ${token}`</span> }
+    });
+    <span class="kw">return</span> res.json();
+  }
+
+  <span class="kw">return</span> {
+    <span class="kw">async</span> getDashboard() { <span class="kw">return</span> fetchJSON(<span class="str">"/dashboard"</span>); },
+    <span class="kw">async</span> getProducts(f, q) { <span class="kw">return</span> fetchJSON(<span class="str">`/products?filter=${f}&q=${q}`</span>); },
+    <span class="cmt">// ... باقي الدوال بنفس النمط</span>
+  };
+})();</pre>
+
+      <h3>الخطوة 2 — نقاط النهاية المقترحة (REST)</h3>
+      <table>
+        <thead><tr><th>الطريقة</th><th>المسار</th><th>الوصف</th></tr></thead>
+        <tbody>
+          <tr><td>GET</td><td>/api/dashboard</td><td>إحصائيات لوحة المبيعات</td></tr>
+          <tr><td>GET</td><td>/api/products</td><td>قائمة المنتجات مع فلترة</td></tr>
+          <tr><td>POST</td><td>/api/products</td><td>إضافة منتج</td></tr>
+          <tr><td>GET</td><td>/api/orders</td><td>قائمة الطلبات</td></tr>
+          <tr><td>PATCH</td><td>/api/orders/:id/status</td><td>تحديث حالة الطلب</td></tr>
+          <tr><td>GET</td><td>/api/customers</td><td>قائمة العملاء</td></tr>
+          <tr><td>GET</td><td>/api/shipping</td><td>طرق الشحن</td></tr>
+          <tr><td>GET</td><td>/api/marketing</td><td>كوبونات وحملات</td></tr>
+          <tr><td>GET/PATCH</td><td>/api/settings</td><td>إعدادات المتجر</td></tr>
+        </tbody>
+      </table>
+
+      <h3>الخطوة 3 — اعتبارات الإنتاج</h3>
+      <ul>
+        <li><strong>المصادقة:</strong> أضف JWT أو OAuth2 — حاليًا لا يوجد نظام تسجيل دخول</li>
+        <li><strong>قاعدة البيانات:</strong> PostgreSQL أو MySQL مع جداول products, orders, order_items, customers</li>
+        <li><strong>بوابات الدفع:</strong> تكامل مع HyperPay أو Moyasar لمدى و Apple Pay و Tabby</li>
+        <li><strong>الشحن:</strong> تكامل API مع أرامكس وسمسا لتتبع الشحنات</li>
+        <li><strong>العملة:</strong> SAR مع دعم ضريبة القيمة المضافة 15%</li>
+        <li><strong>RTL:</strong> الحفاظ على <code>dir="rtl"</code> وخط عربي في الواجهة</li>
+      </ul>
+
+      <div class="card">
+        <p>
+          <span class="badge badge-green">نصيحة</span>
+          لا تحتاج لتعديل app.js عند الانتقال للخادم — طالما حافظت <code>api.js</code> على نفس أسماء الدوال وشكل البيانات المُرجَعة.
+        </p>
+      </div>
+    </section>
+
+    <section id="components">
+      <h2>مكوّنات الواجهة (CSS)</h2>
+      <p>ملف styles.css يتضمن جميع المكوّنات التالية الجاهزة للاستخدام:</p>
+      <ul>
+        <li><strong>grid-stats</strong> — شبكة بطاقات إحصائية (4 أعمدة، متجاوبة)</li>
+        <li><strong>card / stat-card</strong> — بطاقات المحتوى والإحصائيات</li>
+        <li><strong>table / table-wrap</strong> — جداول بيانات مع تمرير</li>
+        <li><strong>tag</strong> — شارات الحالة (success, warn, info, danger, purple, neutral)</li>
+        <li><strong>stock-badge</strong> — شارات المخزون (in, low, out)</li>
+        <li><strong>pipeline</strong> — مسار حالة الطلب (4 مراحل)</li>
+        <li><strong>bar-chart</strong> — رسم بياني عمودي</li>
+        <li><strong>modal / toast</strong> — نوافذ منبثقة وإشعارات</li>
+        <li><strong>gateway-badge</strong> — شارات بوابات الدفع</li>
+        <li><strong>responsive</strong> — نقاط توقف 1200px و 900px</li>
+      </ul>
+    </section>
+
+    <p class="footer-note">
+      متجر نواة v1.0.0 — نموذج أولي تفاعلي للعرض التوضيحي<br />
+      جميع البيانات وهمية — لا يتصل بأي خادم خارجي
+    </p>
+  </div>
+</body>
+</html>
