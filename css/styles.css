@@ -444,3 +444,69 @@ tbody tr:hover td { background: var(--surface-alt); }
 .kpi-row { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 8px; }
 .kpi-item span { font-size: 11px; color: var(--text-muted); }
 .kpi-item strong { display: block; font-size: 15px; margin-top: 2px; }
+
+/* ── Layout: متجر — هيدر بنفسجي أفقي (سلة/زد) ── */
+.layout-store { background: #f1f5f9; }
+.shell-store { flex-direction: column; min-height: 100vh; }
+.shell-store .sidebar { display: none; }
+.store-header {
+  background: linear-gradient(135deg, #6d28d9 0%, #7c3aed 40%, #10b981 100%);
+  color: #fff; box-shadow: 0 4px 24px rgba(124,58,237,.25);
+}
+.store-header-top {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+  gap: 16px; padding: 16px 28px;
+}
+.store-brand { display: flex; align-items: center; gap: 12px; }
+.store-logo {
+  width: 42px; height: 42px; background: rgba(255,255,255,.2);
+  border-radius: 12px; display: grid; place-items: center;
+  font-weight: 800; font-size: 18px; backdrop-filter: blur(4px);
+}
+.store-brand strong { display: block; font-size: 17px; }
+.store-brand span { font-size: 11px; opacity: .8; }
+.store-meta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.store-stat {
+  font-size: 12px; opacity: .9; padding: 6px 14px;
+  background: rgba(255,255,255,.15); border-radius: 20px;
+}
+.store-stat strong { font-size: 14px; margin-right: 4px; }
+.select-dark {
+  background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.25);
+  color: #fff; border-radius: 8px; padding: 6px 10px; font-family: inherit; font-size: 12px;
+}
+.select-dark option { color: var(--text); background: #fff; }
+.store-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.store-actions .search-field {
+  background: rgba(255,255,255,.15); border-color: rgba(255,255,255,.2);
+}
+.store-actions .search-field input { color: #fff; width: 140px; }
+.store-actions .search-field input::placeholder { color: rgba(255,255,255,.6); }
+.store-actions .search-field svg { color: rgba(255,255,255,.7); }
+.icon-btn-light { background: rgba(255,255,255,.15); border-color: rgba(255,255,255,.2); color: #fff; }
+.profile-light .profile-avatar { background: rgba(255,255,255,.25); }
+.profile-light .profile-info strong, .profile-light .profile-info span { color: #fff; }
+.profile-light .profile-info span { opacity: .75; }
+.store-nav {
+  display: flex; gap: 6px; padding: 0 28px 12px; overflow-x: auto;
+}
+.store-nav .nav-section { display: none; }
+.store-nav .nav-item {
+  width: auto; flex-direction: row; gap: 8px;
+  padding: 8px 16px; border-radius: 20px;
+  background: rgba(255,255,255,.12); color: rgba(255,255,255,.9);
+  font-size: 13px; font-weight: 500; white-space: nowrap;
+}
+.store-nav .nav-item:hover { background: rgba(255,255,255,.22); color: #fff; }
+.store-nav .nav-item.active {
+  background: #fff; color: var(--primary); font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0,0,0,.12);
+}
+.store-nav .nav-item.active svg { color: var(--primary); opacity: 1; }
+.store-body { flex: 1; display: flex; flex-direction: column; }
+.store-body .page-head { padding: 20px 28px 0; background: var(--surface); border-bottom: 1px solid var(--border-light); }
+.store-body .content { background: #f1f5f9; }
+@media (max-width: 900px) {
+  .store-header-top { padding: 12px 16px; }
+  .store-nav { padding: 0 16px 10px; }
+}

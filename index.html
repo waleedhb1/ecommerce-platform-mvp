@@ -10,53 +10,50 @@
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
-<body>
-  <div id="app" class="shell">
-    <aside class="sidebar">
-      <header class="brand">
-        <div class="brand-seal" aria-hidden="true">
-          <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="24" y="29" text-anchor="middle" font-size="14" font-weight="700" fill="currentColor">ن</text></svg>
+<body class="layout-store">
+  <div id="app" class="shell shell-store">
+    <header class="store-header">
+      <div class="store-header-top">
+        <div class="store-brand">
+          <span class="store-logo">ن</span>
+          <div>
+            <strong>متجر نواة</strong>
+            <span>لوحة تحكم المتجر</span>
+          </div>
         </div>
-        <div class="brand-text">
-          <span class="brand-org">متجر نواة</span>
-          <span class="brand-sys">منصة تجارة إلكترونية</span>
+        <div class="store-meta">
+          <div class="store-stat">مبيعات اليوم <strong class="num" id="sidebar-sales">—</strong> <span class="num-suffix">ر.س</span></div>
+          <select id="store-select" class="select select-dark">
+            <option value="main">متجر نواة — الرئيسي</option>
+            <option value="riyadh">فرع الرياض</option>
+            <option value="jeddah">فرع جدة</option>
+          </select>
         </div>
-      </header>
-      <nav id="nav" class="nav" aria-label="القائمة الرئيسية"></nav>
-      <div class="sidebar-meta">
-        <div class="term-pill">المبيعات اليوم <span class="num" id="sidebar-sales">—</span> <span class="num-suffix">ر.س</span></div>
-        <label class="field-label" for="store-select">المتجر النشط</label>
-        <select id="store-select" class="select">
-          <option value="main">متجر نواة — الرئيسي</option>
-          <option value="riyadh">فرع الرياض</option>
-          <option value="jeddah">فرع جدة</option>
-        </select>
-      </div>
-    </aside>
-    <div class="workspace">
-      <header class="topbar">
-        <div class="topbar-start">
-          <nav class="breadcrumb" id="breadcrumb" aria-label="مسار التنقل"></nav>
-          <h1 id="page-title" class="page-title"></h1>
-          <p id="page-sub" class="page-sub"></p>
-        </div>
-        <div class="topbar-end">
+        <div class="store-actions">
           <label class="search-field">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-            <input type="search" id="global-search" placeholder="بحث بالطلب أو العميل أو المنتج..." />
+            <input type="search" id="global-search" placeholder="بحث..." />
           </label>
-          <button type="button" class="icon-btn" id="notif-btn" aria-label="الإشعارات">
+          <button type="button" class="icon-btn icon-btn-light" id="notif-btn" aria-label="الإشعارات">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 17h5l-1.4-1.4A2 2 0 0 1 18 14.2V11a6 6 0 1 0-12 0v3.2c0 .5-.2 1-.6 1.4L4 17h5"/><path d="M10 20a2 2 0 0 0 4 0"/></svg>
             <span class="badge-count">7</span>
           </button>
-          <div class="profile">
+          <div class="profile profile-light">
             <div class="profile-avatar">و.ع</div>
             <div class="profile-info">
               <strong>وليد العتيبي</strong>
-              <span id="profile-role">مدير المتجر</span>
+              <span>مدير المتجر</span>
             </div>
           </div>
         </div>
+      </div>
+      <nav id="nav" class="store-nav" aria-label="القائمة الرئيسية"></nav>
+    </header>
+    <div class="store-body">
+      <header class="page-head">
+        <nav class="breadcrumb" id="breadcrumb" aria-label="مسار التنقل"></nav>
+        <h1 id="page-title" class="page-title"></h1>
+        <p id="page-sub" class="page-sub"></p>
       </header>
       <main id="view" class="content"></main>
       <footer class="app-footer">
